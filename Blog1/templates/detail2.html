@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Fireworks by FCT</title>
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/static/css/fontAwesome.css">
+        <link rel="stylesheet" href="/static/css/hero-slider.css">
+        <link rel="stylesheet" href="/static/css/tooplate-style.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <script src="/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+	<!-- end #header -->
+
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		<div id="content">
+				<div class="post">
+					<h2 class="title"><a href="#">{{ blog.title }} </a></h2>
+					<p class="meta">来源 <a href="#">{{ blog.author }}</a> 添加时间{{ blog.created }}
+						&nbsp;&bull;&nbsp; <a href="#" class="comments">{{ blog.category }}</a> &nbsp;&bull;&nbsp; <a href="#" class="permalink">{{ blog.tag }}</a></p>
+					<div class="entry">
+						{{ blog.content }}
+					</div>
+				</div>
+		<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<div id="search" >
+					<form method="post" action="/search/">
+						<div>
+							<input type="text" name="q" id="search-text" value="" />
+							<input type="submit" id="search-submit" value="GO" />
+						</div>
+					{% csrf_token %}
+					</form>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</li>
+
+				<li>
+					<h2>简单，快捷</h2>
+					<p>  效率，很重要。 </p>
+				</li>
+				<li>
+					<h2>{{ category_3 }}</h2>
+					<ul>
+						{% for text in category_3_text  %}
+							<li><a href="{% url 'blog_detail' text.id %}">{{ text.title }}</a></li>
+						{% endfor %}
+
+					</ul>
+				</li>
+				<li>
+					<h2>{{ category_2 }}</h2>
+					<ul>
+						{% for text in category_2_text  %}
+							<li><a href="{% url 'blog_detail' text.id %}">{{ text.title }}</a></li>
+						{% endfor %}
+
+					</ul>
+				</li>
+				<li>
+					<h2>{{ category_1 }}</h2>
+					<ul>
+						{% for text in category_1_text  %}
+							<li><a href="{% url 'blog_detail' text.id %}">{{ text.title }}</a></li>
+						{% endfor %}
+
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+	<div id="footer">
+		<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>
